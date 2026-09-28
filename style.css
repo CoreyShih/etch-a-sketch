@@ -7,11 +7,17 @@ h1 {
     text-align: center;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
 .container {
     display: flex;
     flex-direction: column;
-    width: 800px;
-    height: 800px;
+    width: 960px;
+    height: 960px;
     margin: 0 auto;
     border: 1px solid rgba(211, 211, 211, 0.5);
 }

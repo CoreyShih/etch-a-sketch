@@ -21,6 +21,26 @@ function createGrid(size) {
     });
 }
 
+function removeGrid() {
+    const grid = document.querySelector(".container");
+    grid.replaceChildren();
+}
+
+const MIN_GRID_SIZE = 1;
+const MAX_GRID_SIZE = 100;
 const DEFAULT_GRID_SIZE = 16;
 
 createGrid(DEFAULT_GRID_SIZE);
+
+const btn = document.querySelector("button");
+btn.addEventListener("click", () => {
+    let newGridSize = Number(prompt(`Select new grid size (from ${MIN_GRID_SIZE} to ${MAX_GRID_SIZE}):`));
+
+    if (!(Number.isInteger(newGridSize) && newGridSize >= MIN_GRID_SIZE && newGridSize <= MAX_GRID_SIZE)) {
+        alert("Invalid grid size, reverting to default.");
+        newGridSize = DEFAULT_GRID_SIZE;
+    }
+
+    removeGrid();
+    createGrid(newGridSize);
+});
